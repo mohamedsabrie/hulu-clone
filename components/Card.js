@@ -1,11 +1,13 @@
 import Image from 'next/image';
 import {ThumbUpIcon} from '@heroicons/react/outline';
 import { forwardRef } from 'react';
+
+
 const Card = forwardRef(({ result }, ref) => {
   const BASE_URL = "http://image.tmdb.org/t/p/original/";
 
   return (
-    <div ref={ref} className="p-2 group cursor-pointer transition duration-200 ease-in-out transform sm:hover:scale-105 ">
+    <div   ref={ref} className="p-2 group cursor-pointer transition duration-200 ease-in-out transform sm:hover:scale-105 ">
       <Image
       className="object-contain"
        layout="responsive"
