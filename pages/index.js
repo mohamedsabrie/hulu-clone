@@ -14,7 +14,6 @@ export default function Home({results}) {
         <link rel="icon" href="/logo.png" />
       </Head>
       <Header />
-      <Nav />
       <Results results={results} />
     </div>
   );
@@ -22,16 +21,17 @@ export default function Home({results}) {
 
 export async function getServerSideProps(context) {
   const genre = context.query.genre;
+  console.log(genre, "genre")
   const request = await fetch(
     `https://api.themoviedb.org/3${
       requests[genre]?.url || requests.fetchTrending.url
     }`
   ).then(res => res.json())
   
-
+console.log(request, "request");
   return{
     props:{
-      results:request.results
+      results:request.results || null,
     }
   }
 }
